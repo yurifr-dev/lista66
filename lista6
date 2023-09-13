@@ -1,0 +1,190 @@
+Questão 1: 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+    <meta name="Autor" content="Adriano de Sena Mendonça - Matrícula: 200011093">
+    <meta name="Palavra Chave" content="Web, JavaScript">
+    <meta name="Descrição" content="Atividades sobre JavaScript">
+</head>
+  <script>
+	 function verificarFaixaEtaria() {
+            const idade = parseInt(document.getElementById('idade').value);
+            let faixaEtaria = '';
+
+            if (idade >= 3 && idade <= 10) {
+                faixaEtaria = '3 a 10 anos';
+            } else if (idade >= 11 && idade <= 25) {
+                faixaEtaria = '11 a 25 anos';
+            } else if (idade >= 36 && idade <= 55) {
+                faixaEtaria = '36 a 55 anos';
+            } else if (idade >= 56 && idade <= 100) {
+                faixaEtaria = '56 a 100 anos';
+            } else {
+                faixaEtaria = 'Idade fora das faixas especificadas';
+            }
+
+            document.getElementById('resultado').textContent = 'Faixa etária: ' + faixaEtaria;
+        }
+	</script>
+</head>
+  
+<body>
+    <form>
+        <label for="idade">Digite sua idade:</label>
+        <input type="number" id="idade" required>
+        <button type="button" onclick="verificarFaixaEtaria()">Verificar Faixa Etária</button>
+    </form>
+    <div id="resultado"></div>
+  
+</body>
+</html>
+
+Questão 2: 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+    <meta name="Autor" content="Adriano de Sena Mendonça - Matrícula: 200011093">
+    <meta name="Palavra Chave" content="Web, JavaScript">
+    <meta name="Descrição" content="Atividades sobre JavaScript">
+</head>
+  <script>
+	 function validarForm() {
+            const loginInput = document.getElementById('login');
+            const senhaInput = document.getElementById('senha');
+
+            if (loginInput.value.trim() === '' || senhaInput.value.trim() === '') {
+                alert('Por favor, preencha todos os campos.');
+                return false; 
+            }
+            return true;
+        }
+	</script>
+</head>
+  
+<body>
+    <form id="loginForm" onsubmit="return validarForm()">
+        <label for="login">Login:</label>
+        <input type="text" id="login" name="login" required><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required><br>
+
+        <button type="submit">Entrar</button>
+    </form>
+</body>
+</html>
+
+Questão 3: 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+    <meta name="Autor" content="Adriano de Sena Mendonça - Matrícula: 200011093">
+    <meta name="Palavra Chave" content="Web, JavaScript">
+    <meta name="Descrição" content="Atividades sobre JavaScript">
+</head>
+  <script>
+	function concatenarDados() {
+            var nome = document.getElementById("nome").value;
+            var estadoCivil = document.getElementById("estadoCivil").value;
+            var faixaEtaria = document.getElementById("faixaEtaria").value;
+            var resultado = "Nome: " + nome + "\nEstado Civil: " + estadoCivil + "\nFaixa Etária: " + faixaEtaria;
+
+            console.log(resultado);
+        }
+        
+	</script>
+</head>
+  
+<body>
+    <form id="meuForm">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" /><br>
+
+        <label for="estadoCivil">Estado Civil:</label>
+        <select id="estadoCivil">
+            <option value="Solteiro(a)">Solteiro(a)</option>
+            <option value="Casado(a)">Casado(a)</option>
+
+        </select><br>
+
+        <label for="faixaEtaria">Faixa Etária:</label>
+        <select id="faixaEtaria">
+            <option value="3 a 10 anos">3 a 10 anos</option>
+            <option value="11 a 25 anos">11 a 25 anos</option>
+            <option value="36 a 55 anos">36 a 55 anos</option>
+            <option value="56 a 100 anos">56 a 100 anos</option>
+        </select><br>
+
+        <button type="button" onclick="concatenarDados()">Concatenar</button>
+    </form>
+
+
+</body>
+</html>
+
+Questão 4: 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+    <meta name="Autor" content="Adriano de Sena Mendonça - Matrícula: 200011093">
+    <meta name="Palavra Chave" content="Web, JavaScript">
+    <meta name="Descrição" content="Atividades sobre JavaScript">
+</head>
+  <script>
+	 function calcularIMC() {
+            var peso = parseFloat(document.getElementById("peso").value);
+            var altura = parseFloat(document.getElementById("altura").value);
+
+            if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
+                alert("Por favor, insira valores válidos para peso e altura.");
+                return;
+            }
+            var imc = peso / (altura * altura);
+            var classeIMC = "";
+
+            if (imc < 16.9) {
+                classeIMC = "Muito abaixo do peso";
+            } else if (imc >= 17 && imc <= 18.4) {
+                classeIMC = "Abaixo do peso";
+            } else if (imc >= 18.5 && imc <= 24.9) {
+                classeIMC = "Peso normal";
+            } else if (imc >= 25 && imc <= 29.9) {
+                classeIMC = "Acima do peso";
+            } else {
+                classeIMC = "Obesidade";
+            }
+            var resultado = "Seu IMC é: " + imc.toFixed(2) + "<br>Classificação: " + classeIMC;
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+	</script>
+</head>
+  
+<body>
+    <form id="calcularIMC">
+        <label for="peso">Peso (kg):</label>
+        <input type="number" id="peso" step="0.01" /><br>
+
+        <label for="altura">Altura (m):</label>
+        <input type="number" id="altura" step="0.01" /><br>
+
+        <button type="button" onclick="calcularIMC()">Calcular IMC</button>
+    </form>
+
+    <div id="resultado"></div>
+  
+</body>
+</html>
